@@ -1,0 +1,187 @@
+("midimacs project" "v1" ((88 . "(midimacs-init (channel song-time length state)
+
+  (midimacs-program-change 1 7)
+  (midimacs-program-change 2 54)
+  (midimacs-program-change 3 63)
+  (setq midimacs-bpm 90)
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (49 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'E2)
+
+  (setq chord '(D4 G4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (50 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'D2)
+
+  (setq chord '(Cs4 Fs4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (51 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'A2)
+
+  (setq chord '(B3 E4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (52 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'G2)
+
+  (setq chord '(A3 D4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (53 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'F2)
+
+  (setq chord '(G3 C4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (54 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'C2)
+
+  (setq chord '(D4 G4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (55 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'Bb2)
+
+  (setq chord '(C4 F4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (56 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'F2)
+
+  (setq chord '(D4 G4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (57 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'Eb2)
+
+  (setq chord '(C4 F4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (97 . "(midimacs-init (channel song-time length state)
+
+  (cl-defun play-bass (dur &optional (oct 0))
+    (midimacs-play-note channel (+ (midimacs-anything-to-pitch bass-root) (* 12 (1+ oct))) dur))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  (midimacs-timed
+   (0 (play-bass '1+1/2))
+   (1+1/2 (play-bass '1 1))
+   (2+1/2 (play-bass '1+1/2)))
+
+  state)
+") (120 . "(midimacs-init (channel song-time length state)
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  (midimacs-every 1/3
+    (midimacs-play-note channel (midimacs-pitch+ (elt chord 0) (* 12 (random 3))) '1/8))
+
+  (midimacs-every 1/2
+    (midimacs-play-note channel (midimacs-pitch+ (elt chord 1) (* 12 (random 3))) '1/8))
+
+  state)
+") (113 . "(midimacs-init (channel song-time length state)
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  (midimacs-score
+    (0         C2    1/6)
+    (1         As2   1/12)
+    (1+1/3     As2   1/12)
+    (1+2/3     As2   5/24)
+    (2         C2    5/24)
+    (3         As2   1/6))
+
+  state)
+") (117 . "(midimacs-init (channel song-time length state)
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  (midimacs-score
+    (1/2         Gs3   1/8)
+    (1+1/2         Gs3   1/8)
+    (1+2/3         G3    5/24)
+    (2+1/2         Gs3   7/24)
+    (3+1/2         Gs3   1/3))
+
+  state)
+") (110 . "(midimacs-init (channel song-time length state)
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+  
+  (midimacs-every 1/4
+    (midimacs-play-note channel (midimacs-pitch+ bass-root 12 (* 12 (random 3))) '1/2))
+
+
+  state)
+")) [cl-struct-midimacs-time 0 0] [cl-struct-midimacs-time 68 0] ">99 X 
+>99 1   2   3   4 5 1   2   3   4 5 6   7   8   9   6   7   8   9
+m01 a...a...a...a...a...a...a...a...a...a...a...a...a...a...a...a...a...     
+>02 x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...     
+>03 q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...                                                                    
+>03 u...u...u...u...u...u...u...u...u...u...u...u...u...u...u...u...u...
+>01 n...............................n...................................
+")
