@@ -13,6 +13,50 @@
 (midimacs-run (channel song-time rel-time state)
 
   state)
+") (54 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'C2)
+
+  (setq chord '(D4 G4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (55 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'Bb2)
+
+  (setq chord '(C4 F4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (56 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'F2)
+
+  (setq chord '(D4 G4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
+") (57 . "(midimacs-init (channel song-time length state)
+
+  (setq bass-root 'Eb2)
+
+  (setq chord '(C4 F4))
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  state)
 ") (49 . "(midimacs-init (channel song-time length state)
 
   (setq bass-root 'E2)
@@ -68,65 +112,17 @@
 (midimacs-run (channel song-time rel-time state)
 
   state)
-") (54 . "(midimacs-init (channel song-time length state)
+") (90 . "(midimacs-init (channel song-time length state)
 
-  (setq bass-root 'C2)
+  length)
 
-  (setq chord '(D4 G4))
+(midimacs-run (channel song-time rel-time length)
 
-  nil)
+  (midimacs-every 1
+    (let ((elapsed (midimacs-time/ rel-time length)))
+      (midimacs-set-velocity channel (floor (* elapsed 50)))))
 
-(midimacs-run (channel song-time rel-time state)
-
-  state)
-") (55 . "(midimacs-init (channel song-time length state)
-
-  (setq bass-root 'Bb2)
-
-  (setq chord '(C4 F4))
-
-  nil)
-
-(midimacs-run (channel song-time rel-time state)
-
-  state)
-") (56 . "(midimacs-init (channel song-time length state)
-
-  (setq bass-root 'F2)
-
-  (setq chord '(D4 G4))
-
-  nil)
-
-(midimacs-run (channel song-time rel-time state)
-
-  state)
-") (57 . "(midimacs-init (channel song-time length state)
-
-  (setq bass-root 'Eb2)
-
-  (setq chord '(C4 F4))
-
-  nil)
-
-(midimacs-run (channel song-time rel-time state)
-
-  state)
-") (97 . "(midimacs-init (channel song-time length state)
-
-  (cl-defun play-bass (dur &optional (oct 0))
-    (midimacs-play-note channel (+ (midimacs-anything-to-pitch bass-root) (* 12 (1+ oct))) dur))
-
-  nil)
-
-(midimacs-run (channel song-time rel-time state)
-
-  (midimacs-timed
-   (0 (play-bass '1+1/2))
-   (1+1/2 (play-bass '1 1))
-   (2+1/2 (play-bass '1+1/2)))
-
-  state)
+  length)
 ") (120 . "(midimacs-init (channel song-time length state)
 
   nil)
@@ -138,6 +134,25 @@
 
   (midimacs-every 1/2
     (midimacs-play-note channel (midimacs-pitch+ (elt chord 1) 12 (* 12 (random 3))) '1/2))
+
+  state)
+") (119 . "(midimacs-init (channel song-time length state)
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  (midimacs-score
+    (0         C2    1/6)
+    (1         As2   1/12)
+    (1+1/3     As2   1/12)
+    (1+2/3     As2   5/24)
+    (2     As2   1/12)
+    (2+1/3     As2   1/12)
+    (2+2/3     As2   5/24)
+    (3         As2    5/24)
+    (3+1/3     As2   1/12)
+    (3+2/3     As2   5/24))
 
   state)
 ") (113 . "(midimacs-init (channel song-time length state)
@@ -155,18 +170,28 @@
     (3         As2   1/6))
 
   state)
-") (117 . "(midimacs-init (channel song-time length state)
+") (118 . "(midimacs-init (channel song-time length state)
 
   nil)
 
 (midimacs-run (channel song-time rel-time state)
 
   (midimacs-score
-    (1/2         Gs3   1/8)
-    (1+1/2         Gs3   1/8)
-    (1+2/3         G3    5/24)
-    (2+1/2         Gs3   7/24)
-    (3+1/2         Gs3   1/3))
+    (0         C2    1/6)
+    (1         As2   1/12)
+    (2         C2    5/24)
+    (3         As2   1/6))
+
+  state)
+") (111 . "(midimacs-init (channel song-time length state)
+
+  nil)
+
+(midimacs-run (channel song-time rel-time state)
+
+  (midimacs-score
+    (1/2 Ds4 1)
+    (1+1/2 Ds4 1))
 
   state)
 ") (110 . "(midimacs-init (channel song-time length state)
@@ -269,19 +294,34 @@
 (midimacs-run (channel song-time rel-time state)
 
   (midimacs-score
-    (0         C6    4)
-    (2         C5    4))
+    (1         B5     4)    
+    (3         B5     4))
 
   
 
   state)
-")) [cl-struct-midimacs-time 0 0] [cl-struct-midimacs-time 68 0] ">99 X                             
->99 1   2   3   4 5 1   2   3   4 5 6   7   8   9   6   7   8   9
-m01 a...a...a...a...a...a...a...a...a...a...a...a...a...a...a...a...a...     
->02 x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...     
->03 q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...                                                                    
->03 u...u...u...u...u...u...u...u...u...u...u...u...u...u...u...u...u...
->01 n...............................n...................................
-m04 J...............................K...................................
->00                                 i...i...i...i...i...i...i...i...i...    
-")
+")) [cl-struct-midimacs-time 0 0] [cl-struct-midimacs-time 319 0] ">99 X                                                                                                                                                                                                                                                           
+>99 1               1   2   3   4 5 1   2   3   4 5 6   7   8   9   6   7   8   9       1   2   3   4 5 1   2   3   4 5 6   7   8   9   6   7   8   9       1   2   3   4 5 1   2   3   4 5 6   7   8   9   6   7   8   9   6   7   8   9   6   7   8   9       1   2   3   4 5 1   2   3   4 5 1   2   3   4 5 1   2   3   4 5                                 
+>02                                                                                                                     Z...................................
+>02 x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...                                x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...x...                                                                
+>03                                                                                     v...v...v...v...v...v...v...v...v...v...v...v...v...v...v...v...w...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...q...v...v...v...v...v...v...v...v...v...v...v...v...v...v...v...v...                                                    
+>03                                                                                                                                                         o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.o.                                                                
+>01                                                                                     n...............................n...................................n...............................n...............................n...................................n...............................n...............................
+m04                 J...............................K...................................J...............................K...................................J...............................K...............................K...................................                                                                
+>03                                                 i...i...i...i...i...i...i...i...i...                                i...i...i...i...i...i...i...i...i...                                i...i...i...i...i...i...i...i...i...i...i...i...i...i...i...i...i...                                                                
+                                                                                                                                                                                                                                                                                                
+guitar: start octave down                                                               still octave down...                                                octave up!                      with harmony   
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                    ")
